@@ -24,7 +24,7 @@ a {
 
 .top-bar-wrapper {
     display: grid;
-    grid-template-columns: 1fr 640px 1fr;
+    grid-template-columns: 70fr 640px 1fr;
     align-items: center;
     justify-items: center;
     height: 50px;

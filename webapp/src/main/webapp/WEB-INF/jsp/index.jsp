@@ -16,9 +16,20 @@
     <link href="${mainCss}" rel="stylesheet" />
 </head>
 <body>
-<div class="menu">
-<a href="">Главная</a>
-<a href="">Плагины</a>
+<div class="top-bar-wrapper">
+    <div class="menu-bar-wrapper">
+        <ul class="menu-bar">
+            <li class="main">
+                <a href="#">Главная</a>
+            </li>
+            <li class="plugin">
+                <a href="#">Плагины</a>
+            </li>
+            <li class="developer">
+                <a href="#">Разработчику</a>
+            </li>
+        </ul>
+    </div>
 </div>
 <form action="login">
    Логин <input type="20"><br>

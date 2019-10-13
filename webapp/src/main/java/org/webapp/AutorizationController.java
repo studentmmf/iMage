@@ -10,6 +10,7 @@ public class AutorizationController {
 
     @RequestMapping("login")
     public String login(ModelMap m ) {
+
         return "index";
     }
 

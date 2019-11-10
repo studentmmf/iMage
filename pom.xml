@@ -13,7 +13,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
+        <version>1.4.0.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
   <properties>
@@ -24,24 +25,25 @@
 
   <dependencies>
    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.13</version>
-</dependency>
-   <!-- https://mvnrepository.com/artifact/junit/junit -->
-<dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.12</version>
-    <scope>test</scope>
-</dependency>
-   
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.13</version>
+    </dependency>
+       <!-- https://mvnrepository.com/artifact/junit/junit -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+    </dependency>
+
   </dependencies>
-	
+
   <modules>
     <module>gui</module>
       <module>webapp</module>
+      <module>springbootmodule</module>
   </modules>
     <build>
         <plugins>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Авторизация</title>
+      
+   </head>
+   <body>
+      
+       
+      <!--  
+         In Thymeleaf the equivalent of
+         JSP's ${pageContext.request.contextPath}/edit.html
+         would be @{/edit.html}         
+         -->
+         <a href="http://localhost:8080/webapp/mainProc">Главная</a>
+<a href="">Плагины</a>
+<a href="showReg">Зарегистрироваться</a>
+          <div th:utext="${message}">
+         
+      </div>
+      <form th:action="@{login}"
+         th:object="${personForm}" method="POST">
+         Логин:
+         <input type="text" th:field="*{login}" />    
+         <br/>
+         Пароль:
+         <input type="text" th:field="*{password}" />     
+         <br/>
+         <input type="submit" value="login" />
+      </form>
+       
+      <br/>
+      <a href="">Забыли пароль?</a>
+       
+      <!-- Check if errorMessage is not null and not empty -->
+       
+      
+       
+   </body>
+</html>

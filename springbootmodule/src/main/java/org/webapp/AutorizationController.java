@@ -24,7 +24,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 
-@RestController
+@RestController//@Controller
 @RequestMapping(value="")
 
 @SessionAttributes(value = "userAuth")
@@ -68,9 +68,13 @@ public class AutorizationController extends HttpServlet {
 	 @RequestMapping(value = "login", method =  RequestMethod.POST)
 	    public ModelAndView login(ModelMap m, HttpServletRequest request, @ModelAttribute(value="userAuth") User userAuth) {
 	    	ModelAndView modelAndView = new ModelAndView();
-	    	modelAndView.setViewName("index");   
-	    	String login = request.getParameter("login");
-	    	String password = request.getParameter("password");
+	    	modelAndView.setViewName("index"); 
+	    	User userForm = new User();
+	    	m.addAttribute("userForm", userForm);
+	    	//String login = request.getParameter("login");
+	    	//String password = request.getParameter("password");
+	    	String login = userForm.getLogin();
+	    	String password = userForm.getPassword();
 	    	BaseDAOImpl base = new BaseDAOImpl();
 	    	if (base.userExists(login)) {
 	    		User user = base.findUserByLogin(login);

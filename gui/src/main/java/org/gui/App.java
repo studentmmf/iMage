@@ -29,6 +29,7 @@ public class App extends Application {
 	private Option opt;
 	private Messages mes;
 	private String currentTheme;
+	private  AppMenu menu;
 
 	public static void main(String[] args) {
 
@@ -37,21 +38,26 @@ public class App extends Application {
 
 	public App() {
 		opt = new Option();
-		currentTheme = opt.getTheme(Theme.BLACK);
+		currentTheme = opt.getTheme(Theme.STANDARD);
 		mes = new Messages(Locale.ENGLISH);
+
 
 	}
 	@Override
 	public void start(Stage stage) {
 
 		stage.setTitle(mes.getString(TITLE_OF_FRAME));
-		AppMenu menu = new AppMenu(this,stage);
-
+		menu =  new AppMenu(this,stage);
 		VBox vbox = new VBox(menu);
 		Scene scene = new Scene(vbox, opt.width(), opt.height());
 		scene.getStylesheets().add(currentTheme);
 		stage.setScene(scene);
 		stage.show();
+	}
+
+
+	public AppMenu getMenu() {
+		return menu;
 	}
 
 	public Option getOption() {

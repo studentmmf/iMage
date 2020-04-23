@@ -23,9 +23,11 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.gui.options.Option;
 
 
 import static org.gui.messages.Constants.FILE_MENU;
@@ -63,12 +65,11 @@ public class AppMenu extends MenuBar {
 		changeStage = new Stage();
 
 		final FlowPane fp = new FlowPane();
-
+		Option option = app.getOption();
 		aboutStage.setTitle(app.getMessages().getString(ABOUT_TITLE));
 		changeStage.setTitle(app.getMessages().getString(CHANGING_TITLE));
-
-		aboutStage.setHeight(200);
-		aboutStage.setWidth(300);
+		aboutStage.setHeight(option.height() * 0.4);
+		aboutStage.setWidth(option.width() * 0.8);
 		aboutStage.setScene(new Scene(new Group(new Label("Описание базового плагина iMage"))));
 
 		MenuItem loadItem = new MenuItem(app.getMessages().getString(LOAD_ITEM));		
@@ -116,8 +117,8 @@ public class AppMenu extends MenuBar {
 				fp.getChildren().addAll(sizeSlider, brightnessSlider, saveButton, cancelButton);
 				fp.setPadding(new Insets(20));
 				BorderPane bp = new BorderPane(imageView, null, null, fp, null);
-				Scene scene = new Scene(bp, 600, 600);
-				scene.getStylesheets().add(app.getCurrentTheme());
+				VBox box = new VBox(app.getMenu(), bp);
+				Scene scene = new Scene(box, option.width(), option.height());
 
 				changeStage.setScene(scene);
 				changeStage.show();
@@ -132,7 +133,8 @@ public class AppMenu extends MenuBar {
 						imageView.setFitHeight(imageHeight);
 						imageView.setFitWidth(imageWidth);
 						BorderPane bp = new BorderPane(imageView, null, null, fp, null);
-						Scene scene = new Scene(bp, 600, 600);
+						VBox box = new VBox(app.getMenu(), bp);
+						Scene scene = new Scene(box, option.width(), option.height());
 						changeStage.setScene(scene);
 						changeStage.show();
 
@@ -176,7 +178,9 @@ public class AppMenu extends MenuBar {
 						imageView.setFitHeight(imageHeight);
 						imageView.setFitWidth(imageWidth);
 						BorderPane bp = new BorderPane(imageView, null, null, fp, null);
-						Scene scene = new Scene(bp, 600, 600);
+						VBox box = new VBox(app.getMenu(), bp);
+						Scene scene = new Scene(box, option.width(), option.height());
+
 						changeStage.setScene(scene);
 						changeStage.show();
 
